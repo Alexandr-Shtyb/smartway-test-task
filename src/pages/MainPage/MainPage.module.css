@@ -1,0 +1,10 @@
+.wrapperInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapperRepos {
+  display: flex;
+  justify-content: space-between;
+}

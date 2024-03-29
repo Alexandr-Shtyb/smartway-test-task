@@ -1,0 +1,4 @@
+.listRepos {
+  display: flex;
+  flex-direction: column;
+}

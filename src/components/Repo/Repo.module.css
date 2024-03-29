@@ -1,0 +1,24 @@
+.repoWrapper {
+  display: inline-block;
+  max-width: 200px;
+  padding: 10px;
+  text-align: center;
+}
+
+.repoImg {
+  margin: 0 auto;
+  width: 175px;
+  border-radius: 30px;
+}
+
+.wrapperStarsAndForks {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.repoLink {
+  display: inline-block;
+  padding-top: 10px;
+  text-decoration: none;
+}
