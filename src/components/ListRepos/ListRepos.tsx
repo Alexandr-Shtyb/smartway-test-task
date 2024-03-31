@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from "react";
 
-import styles from "components/ListRepos/ListRepos.module.css";
+import styles from "./ListRepos.module.css";
 
 type ListReposProps = {
   children: ReactNode;

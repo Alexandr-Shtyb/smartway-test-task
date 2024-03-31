@@ -1,5 +1,6 @@
 import type { FC, Dispatch, SetStateAction } from "react";
-import styles from "components/InputSearch/Input.module.css";
+
+import styles from "./Input.module.css";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   value: string;
