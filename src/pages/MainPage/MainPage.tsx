@@ -1,32 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AppContainer from "layout/AppContainer/AppContainer";
 import Input from "components/InputSearch/Input";
 import ListRepos from "components/ListRepos/ListRepos";
 import Repo from "components/Repo/Repo";
-import { useThrottle } from "hooks";
+import { useFetchRepos } from "hooks/useFetchRepos";
 import { RepoStructure } from "types";
 import ClipBoardButton from "components/ClipBoardButton/ClipBoardButton";
 import { observer } from "mobx-react-lite";
 import favouritesRepos from "store/favouritesRepos";
 import Spinner from "components/Spinner/Spinner";
-import { fetchRepos } from "helpers/fetchRepos";
 
-import styles from "pages/MainPage/MainPage.module.css";
+import styles from "./MainPage.module.css";
 
 const MainPage = observer(() => {
-  const [inputSearchValue, setInputSearchValue] = useState("");
-  const [isFetching, setIsFetching] = useState(false);
   const [repos, setRepos] = useState<RepoStructure[]>([]);
-  const throttledValue = useThrottle(inputSearchValue);
 
   const isRepos = repos.length > 0;
 
-  useEffect(() => {
-    if (inputSearchValue) {
-      setIsFetching(true);
-      fetchRepos(inputSearchValue, setRepos, setIsFetching);
-    }
-  }, [throttledValue]);
+  const { inputSearchValue, setInputSearchValue, isReposFetching } =
+    useFetchRepos(setRepos);
 
   return (
     <AppContainer>
@@ -43,7 +35,7 @@ const MainPage = observer(() => {
         <div className={styles.wrapperRepos}>
           <div>
             <h2>Список репозиториев:</h2>
-            {isFetching ? (
+            {isReposFetching ? (
               <Spinner />
             ) : (
               <ListRepos>

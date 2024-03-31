@@ -1,5 +1,6 @@
 import type { FC, ReactNode } from "react";
-import styles from "layout/AppContainer/AppContainer.module.css";
+
+import styles from "./AppContainer.module.css";
 
 type AppContainerProps = {
   children: ReactNode;
